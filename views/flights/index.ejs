@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <%- include('../partials/navbar'); -%>
+        <h1>View Flights:</h1>
+        <table>
+            <thead>
+
+                <th> Airline</th>
+                <th>Airport</th>
+                <th>Flight No.</th>
+                <th>Departure Date/Time</th>
+
+            </thead>
+            <tbody>
+                <% flights.forEach(function(x)  { %>
+                    <tr>
+                        <td>
+                            <%= x.airline %>
+                        </td>
+                        <td>
+                            <%= x.airport %>
+                        </td>
+                        <td>
+                            <%= x.flightNo %>
+                        </td>
+                        <td>
+                            <%= x.departs %>
+                        </td>
+                        <td>
+                            <a href="/flights/<%= x._id %>">DETAILS</a>
+                        </td>
+                    </tr>
+
+                    <%});  %>
+            </tbody>
+        </table>
+</body>
+
+</html>

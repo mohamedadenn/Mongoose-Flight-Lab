@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <%- include('../partials/navbar'); -%>
+        <h1>FLIGHT DETAILS</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th> Airline</th>
+                    <th>Airport</th>
+                    <th>Flight No.</th>
+                    <th>Departure Date/Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <%= flight.airline %>
+                    </td>
+                    <td>
+                        <%= flight.airport %>
+                    </td>
+                    <td>
+                        <%= flight.flightNo %>
+                    </td>
+                    <td>
+                        <%= flight.departs %>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h1>ADD A FLIGHT DESTINATION</h1>
+        <form action="/flights/<%= flight._id %>/destinations" method="POST">
+            <label>Airport:  
+                
+                <select name="airport">
+                    <option value="AUS">AUS</option>
+                    <option value="DFW">DFW</option>
+                    <option value="DEN">DEN</option> 
+                    <option value="LAX">LAX</option>
+                    <option value="SAN">SAN</option>
+                </select>
+            </label>
+            <br>
+            <label>Arrival:
+                <input type="datetime-local" name="arrival"> 
+            </label>
+            <br>
+            <input type="submit" value="Add Destination">
+        </form>
+</body>
+
+</html>
